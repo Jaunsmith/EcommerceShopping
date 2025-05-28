@@ -6,10 +6,12 @@ class InputFormFiled extends StatefulWidget {
     required this.text,
     this.isPassword = false,
     this.textInputType = TextInputType.text,
+    required this.icons,
   });
   final String text;
   final bool isPassword;
   final TextInputType textInputType;
+  final IconData icons;
 
   @override
   State<InputFormFiled> createState() => _InputFormFiledState();
@@ -49,9 +51,10 @@ class _InputFormFiledState extends State<InputFormFiled> {
                             ? Icons.visibility_off_outlined
                             : Icons.remove_red_eye_outlined,
                       )
-                    : Container(),
+                    : null,
               )
             : null,
+        prefixIcon: Icon(widget.icons),
       ),
     );
   }

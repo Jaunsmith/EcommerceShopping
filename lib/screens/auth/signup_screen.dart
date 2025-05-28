@@ -1,11 +1,11 @@
-import 'package:ecommerce_shopping/screens/auth/signup_screen.dart';
+import 'package:ecommerce_shopping/screens/auth/login_screen.dart';
 import 'package:ecommerce_shopping/utilities/apps_color.dart';
 import 'package:ecommerce_shopping/utilities/distance_between.dart';
 import 'package:ecommerce_shopping/widgets/input_form_filed.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,9 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                120.height,
                 Image.asset('assets/images/freed.png'),
                 Text(
-                  'SIGN IN  UP BELOW',
+                  'SIGN UP BELOW',
                   style: TextStyle(
                     color: AppColor.mainColor,
                     fontWeight: FontWeight.bold,
@@ -31,29 +30,26 @@ class LoginScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     children: [
-                      InputFormFiled(text: 'Phone', icons: Icons.phone),
-                      30.height,
+                      InputFormFiled(text: 'FullName', icons: Icons.person),
+                      20.height,
+                      InputFormFiled(text: 'Email', icons: Icons.email),
+                      20.height,
                       InputFormFiled(
                         text: 'Enter Password',
                         isPassword: true,
                         icons: Icons.lock,
                       ),
-                      10.height,
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Forget Password?',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: AppColor.mainColor,
-                            ),
-                          ),
-                        ),
+                      20.height,
+                      InputFormFiled(
+                        text: 'Confirm Password',
+                        isPassword: true,
+                        icons: Icons.lock,
                       ),
-                      25.height,
+                      20.height,
+                      InputFormFiled(text: 'Phone', icons: Icons.phone),
+                      20.height,
+                      InputFormFiled(text: 'Address', icons: Icons.location_on),
+                      20.height,
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
@@ -66,10 +62,10 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          'Login',
+                          'Create an account',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 30,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -79,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'You don\'s have an account? ',
+                            'Already have an ? ',
                             style: TextStyle(
                               fontSize: 15,
                               color: Colors.black54,
@@ -90,12 +86,12 @@ class LoginScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SignUpScreen(),
+                                  builder: (context) => LoginScreen(),
                                 ),
                               );
                             },
                             child: Text(
-                              'SignUp Here',
+                              'Login Here',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
