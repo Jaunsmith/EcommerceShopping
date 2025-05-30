@@ -7,11 +7,17 @@ class InputFormFiled extends StatefulWidget {
     this.isPassword = false,
     this.textInputType = TextInputType.text,
     required this.icons,
+    this.onChange,
+    this.textEditingController,
+    this.suffix,
   });
   final String text;
   final bool isPassword;
   final TextInputType textInputType;
   final IconData icons;
+  final ValueChanged<String>? onChange;
+  final TextEditingController? textEditingController;
+  final Widget? suffix;
 
   @override
   State<InputFormFiled> createState() => _InputFormFiledState();
@@ -23,11 +29,14 @@ class _InputFormFiledState extends State<InputFormFiled> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.textEditingController,
+      onChanged: widget.onChange,
       obscuringCharacter: '*',
       obscureText: widget.isPassword ? hidden : false,
       keyboardType: widget.textInputType,
       decoration: InputDecoration(
         labelText: widget.text,
+        suffix: widget.suffix,
         labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         focusedBorder: OutlineInputBorder(
