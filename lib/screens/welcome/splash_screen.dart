@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_shopping/screens/home/home_screen.dart';
-import 'package:ecommerce_shopping/screens/onboarding_screen.dart';
+import 'package:ecommerce_shopping/screens/welcome/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

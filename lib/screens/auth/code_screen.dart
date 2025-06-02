@@ -29,6 +29,11 @@ class CodeScreen extends StatelessWidget {
     final focusPinTheme = PinTheme(
       width: 60,
       height: 60,
+      textStyle: const TextStyle(
+        fontSize: 25,
+        color: Colors.black54,
+        fontWeight: FontWeight.bold,
+      ),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.red, width: 1.5),
         borderRadius: BorderRadius.circular(8),

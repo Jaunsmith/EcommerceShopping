@@ -1,6 +1,8 @@
-import 'package:ecommerce_shopping/screens/auth/code_screen.dart';
 import 'package:ecommerce_shopping/screens/auth/login_screen.dart';
-import 'package:ecommerce_shopping/screens/splash_screen.dart';
+import 'package:ecommerce_shopping/screens/home/details/all_details.dart';
+import 'package:ecommerce_shopping/screens/navigation/navigation_screen.dart';
+import 'package:ecommerce_shopping/screens/welcome/splash_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +18,7 @@ class EcommerceShopping extends StatelessWidget {
       title: 'E-Commerce Shopping',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.red),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:ecommerce_shopping/screens/home/home_screen.dart';
+import 'package:ecommerce_shopping/screens/navigation/navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -63,13 +63,13 @@ class OnboardingScreen extends StatelessWidget {
       onDone: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => NavigationScreen()),
         );
       },
       onSkip: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => NavigationScreen()),
         );
       },
       dotsDecorator: DotsDecorator(
