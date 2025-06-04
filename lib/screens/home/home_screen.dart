@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_shopping/screens/home/details/product_details.dart';
 import 'package:ecommerce_shopping/utilities/app_data.dart';
 import 'package:ecommerce_shopping/utilities/apps_color.dart';
 import 'package:ecommerce_shopping/utilities/distance_between.dart';
@@ -143,18 +144,21 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   InkWell(
                                     onTap: () {
-                                      print('Images clickable ');
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ProductDetails(index: index),
+                                        ),
+                                      );
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child: GestureDetector(
-                                        onTap: () {},
-                                        child: CachedNetworkImage(
-                                          imageUrl: AppData.images[index],
-                                          fit: BoxFit.cover,
-                                          height: 200,
-                                          width: 160,
-                                        ),
+                                      child: CachedNetworkImage(
+                                        imageUrl: AppData.images[index],
+                                        fit: BoxFit.cover,
+                                        height: 200,
+                                        width: 160,
                                       ),
                                     ),
                                   ),
@@ -169,7 +173,9 @@ class HomeScreen extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(15),
                                       ),
                                       child: InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          print('Favorite click');
+                                        },
                                         child: Center(
                                           child: Icon(
                                             Icons.favorite,
@@ -240,13 +246,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 20.height,
                 GridView.builder(
-                  itemCount: 4,
+                  itemCount: AppData.images.length,
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 0.6,
-                    crossAxisSpacing: 2,
+                    crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
                   ),
                   itemBuilder: (BuildContext context, int index) {
@@ -261,7 +267,15 @@ class HomeScreen extends StatelessWidget {
                             child: Stack(
                               children: [
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ProductDetails(index: index),
+                                      ),
+                                    );
+                                  },
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: CachedNetworkImage(
@@ -283,7 +297,9 @@ class HomeScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(15),
                                     ),
                                     child: InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        print('Favorite click');
+                                      },
                                       child: Center(
                                         child: Icon(
                                           Icons.favorite,

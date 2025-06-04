@@ -28,7 +28,10 @@ class _ProductDescriptionHelperState extends State<ProductDescriptionHelper> {
         children: [
           Text(
             displayText,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              color: Colors.black54,
+              fontWeight: FontWeight.w500,
+            ),
             textAlign: TextAlign.justify,
           ),
           10.height,

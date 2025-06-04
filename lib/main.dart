@@ -1,5 +1,5 @@
 import 'package:ecommerce_shopping/screens/auth/login_screen.dart';
-import 'package:ecommerce_shopping/screens/home/details/all_details.dart';
+import 'package:ecommerce_shopping/screens/home/details/product_details.dart';
 import 'package:ecommerce_shopping/screens/navigation/navigation_screen.dart';
 import 'package:ecommerce_shopping/screens/welcome/splash_screen.dart';
 
