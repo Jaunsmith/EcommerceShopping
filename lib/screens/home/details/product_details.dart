@@ -35,7 +35,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         title: Text(
-          'Product Details',
+          'Product Overview',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

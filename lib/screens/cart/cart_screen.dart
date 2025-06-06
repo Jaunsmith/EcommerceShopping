@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce_shopping/screens/payments/payment_method_screen.dart';
+import 'package:ecommerce_shopping/screens/profile/address_screen.dart';
 import 'package:ecommerce_shopping/utilities/app_data.dart';
 import 'package:ecommerce_shopping/utilities/apps_color.dart';
 import 'package:ecommerce_shopping/utilities/distance_between.dart';
@@ -99,12 +101,12 @@ class _CartScreenState extends State<CartScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    AppData.productTitles[1],
+                                    AppData.productTitles[index],
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Text(AppData.productPrice[1]),
+                                  Text(AppData.productPrice[index]),
                                   Text(
                                     '100 units left',
                                     style: TextStyle(
@@ -191,6 +193,10 @@ class _CartScreenState extends State<CartScreen> {
             10.height,
             GestureDetector(
               onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddressScreen()),
+                );
                 print('Check out clicked');
               },
               child: Container(
