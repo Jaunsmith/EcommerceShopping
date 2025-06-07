@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce_shopping/utilities/app_data.dart';
+import 'package:ecommerce_shopping/screens/order/order_confirmation_screen.dart';
 import 'package:ecommerce_shopping/utilities/distance_between.dart';
 import 'package:flutter/material.dart';
 
@@ -389,7 +389,14 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               ),
               50.height,
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OrderConfirmationScreen(),
+                    ),
+                  );
+                },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 12),
                   width: double.maxFinite,

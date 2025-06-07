@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce_shopping/screens/payments/payment_method_screen.dart';
 import 'package:ecommerce_shopping/screens/profile/address_screen.dart';
 import 'package:ecommerce_shopping/utilities/app_data.dart';
 import 'package:ecommerce_shopping/utilities/apps_color.dart';
@@ -14,7 +13,15 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  int quantity = 0;
+  List<int> itemQuantities = [];
+  double totalPrice = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    itemQuantities = List.filled(AppData.images.length, 0);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +83,13 @@ class _CartScreenState extends State<CartScreen> {
                 itemCount: 4,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
+                  for (int i = 0; i < AppData.images.length; i++) {
+                    totalPrice +=
+                        double.parse(
+                          AppData.productPrice[i].replaceAll('\$', ''),
+                        ) *
+                        itemQuantities[i];
+                  }
                   return Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     margin: EdgeInsets.only(bottom: 10),
@@ -136,7 +150,7 @@ class _CartScreenState extends State<CartScreen> {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      quantity++;
+                                      itemQuantities[index]++;
                                     });
                                   },
                                   child: Container(
@@ -150,7 +164,7 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                                 20.width,
                                 Text(
-                                  '$quantity',
+                                  '${itemQuantities[index]}',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
@@ -161,10 +175,10 @@ class _CartScreenState extends State<CartScreen> {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      if (quantity > 0) {
-                                        quantity--;
+                                      if (itemQuantities[index] > 0) {
+                                        itemQuantities[index]--;
                                       } else {
-                                        quantity = 0;
+                                        itemQuantities[index] = 0;
                                       }
                                     });
                                   },
@@ -208,7 +222,7 @@ class _CartScreenState extends State<CartScreen> {
                 ),
                 child: Center(
                   child: Text(
-                    'Check out  (\$441)',
+                    'Check out  (\$$totalPrice)',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
